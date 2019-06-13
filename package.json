@@ -4,7 +4,19 @@
   "description": "bootsrap for typescript project",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "tsc -p tsconfig.build.json",
+    "format": "prettier --write \"src/**/*.ts\"",
+    "start": "ts-node -r tsconfig-paths/register src/main.ts",
+    "start:dev": "nodemon",
+    "start:debug": "nodemon --config nodemon-debug.json",
+    "prestart:prod": "rimraf dist && npm run build",
+    "start:prod": "node dist/main.js",
+    "lint": "tslint -p tsconfig.json -c tslint.json",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:cov": "jest --coverage",
+    "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
+    "test:e2e": "jest --config ./test/jest-e2e.json"
   },
   "repository": {
     "type": "git",
@@ -18,5 +30,20 @@
   "bugs": {
     "url": "https://github.com/beninja/typescript-bootstrap/issues"
   },
-  "homepage": "https://github.com/beninja/typescript-bootstrap#readme"
+  "homepage": "https://github.com/beninja/typescript-bootstrap#readme",
+  "devDependencies": {
+    "husky": "^2.4.1",
+    "nodemon": "^1.19.1",
+    "tslint": "^5.17.0",
+    "tslint-config-airbnb": "^5.11.1",
+    "typescript": "^3.5.1"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run lint"
+    }
+  },
+  "engines": {
+    "node": "10.16.0"
+  }
 }
