@@ -1,0 +1,22 @@
+{
+  "name": "typescript-bootstrap",
+  "version": "1.0.0",
+  "description": "bootsrap for typescript project",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/beninja/typescript-bootstrap.git"
+  },
+  "keywords": [
+    "typescript"
+  ],
+  "author": "Benjamin ROULLET",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/beninja/typescript-bootstrap/issues"
+  },
+  "homepage": "https://github.com/beninja/typescript-bootstrap#readme"
+}
